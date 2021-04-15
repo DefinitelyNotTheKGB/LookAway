@@ -9,6 +9,11 @@ class HibernateQueryProducer extends RefType {
   HibernateQueryProducer() { this.hasQualifiedName("org.hibernate.query", "QueryProducer") }
 }
 
+/** The interface `org.hibernate.Query`. */
+class HibernateQuery extends RefType {
+  HibernateQuery() { this.hasQualifiedName("org.hibernate", "Query") }
+}
+
 /** The interface `org.hibernate.SharedSessionContract`. */
 class HibernateSharedSessionContract extends RefType {
   HibernateSharedSessionContract() {

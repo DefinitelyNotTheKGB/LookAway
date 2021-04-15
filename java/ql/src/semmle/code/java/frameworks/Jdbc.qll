@@ -84,9 +84,9 @@ class MethodStatementAddBatch extends Method {
 }
 
 /** A method with the name `list` declared in `org.hibernate.Session`. */
-class MethodHibernateSessionList extends Method {
-  MethodHibernateSessionList() {
-    getDeclaringType() instanceof HibernateSession and
+class MethodHibernateQueryList extends Method {
+  MethodHibernateQueryList() {
+    getDeclaringType() instanceof HibernateQuery and
     hasName("list")
   }
 }
@@ -117,7 +117,7 @@ class SqlExpr extends Expr {
         method instanceof MethodStatementExecute or
         method instanceof MethodStatementExecuteUpdate or
         method instanceof MethodStatementExecuteLargeUpdate or
-        method instanceof MethodHibernateSessionList or
+        method instanceof MethodHibernateQueryList or
         method instanceof MethodStatementAddBatch
       )
     )
