@@ -3,6 +3,7 @@
  */
 
 import semmle.code.java.Type
+import semmle.code.java.frameworks.Hibernate
 
 /*--- Types ---*/
 /** The interface `java.sql.Connection`. */
@@ -23,11 +24,6 @@ class TypeResultSet extends Interface {
 /** The interface `java.sql.Statement`. */
 class TypeStatement extends Interface {
   TypeStatement() { hasQualifiedName("java.sql", "Statement") }
-}
-
-/** The interface `org.hibernate.Session`. */
-class HibernateSession extends RefType {
-  HibernateSession() { this.hasQualifiedName("org.hibernate", "Session") }
 }
 
 /*--- Methods ---*/
