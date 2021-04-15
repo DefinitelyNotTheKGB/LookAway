@@ -72,7 +72,8 @@ private class HibernateQueryInjectionSink extends QueryInjectionSink {
     // the query (first) argument to a `createQuery` or `createNativeQuery` method on `Session`
     exists(MethodAccess call, HibernateSession s | call.getArgument(0) = this.asExpr() |
       call.getMethod() = s.getACreateQueryMethod() or
-      call.getMethod() = s.getACreateNativeQueryMethod()
+      call.getMethod() = s.getACreateNativeQueryMethod() or
+      call.getMethod() = s.getACreateSQLQueryMethod()
       // note: `createNamedQuery` is safe, as it takes only the query name,
       // and named queries can only be constructed using constants as the query text
     )

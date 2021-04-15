@@ -37,6 +37,12 @@ class HibernateSession extends RefType {
     result.hasName("createNativeQuery") and
     result = this.getAMethod()
   }
+
+  /** Gets a method named `createSQLQuery` declared in the `Session` interface. */
+  Method getACreateSQLQueryMethod() {
+    result.hasName("createSQLQuery") and
+    result = this.getAMethod()
+  }
 }
 
 /**
