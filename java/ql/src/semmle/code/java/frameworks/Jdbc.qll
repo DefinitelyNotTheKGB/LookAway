@@ -25,6 +25,11 @@ class TypeStatement extends Interface {
   TypeStatement() { hasQualifiedName("java.sql", "Statement") }
 }
 
+/** The interface `org.hibernate.Session`. */
+class HibernateSession extends RefType {
+  HibernateSession() { this.hasQualifiedName("org.hibernate", "Session") }
+}
+
 /*--- Methods ---*/
 /** A method with the name `prepareStatement` declared in `java.sql.Connection`. */
 class ConnectionPrepareStatement extends Method {
@@ -82,6 +87,14 @@ class MethodStatementAddBatch extends Method {
   }
 }
 
+/** A method with the name `list` declared in `org.hibernate.Session`. */
+class MethodHibernateSessionList extends Method {
+  MethodHibernateSessionList() {
+    getDeclaringType() instanceof HibernateSession and
+    hasName("list")
+  }
+}
+
 /** A method with the name `getString` declared in `java.sql.ResultSet`. */
 class ResultSetGetStringMethod extends Method {
   ResultSetGetStringMethod() {
@@ -108,6 +121,7 @@ class SqlExpr extends Expr {
         method instanceof MethodStatementExecute or
         method instanceof MethodStatementExecuteUpdate or
         method instanceof MethodStatementExecuteLargeUpdate or
+        method instanceof MethodHibernateSessionList or
         method instanceof MethodStatementAddBatch
       )
     )
