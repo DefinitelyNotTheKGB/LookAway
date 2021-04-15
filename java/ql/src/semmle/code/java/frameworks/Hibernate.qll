@@ -19,6 +19,24 @@ class HibernateSharedSessionContract extends RefType {
 /** The interface `org.hibernate.Session`. */
 class HibernateSession extends RefType {
   HibernateSession() { this.hasQualifiedName("org.hibernate", "Session") }
+
+  /** Gets a method named `createQuery` declared in the `Session` interface. */
+  Method getACreateQueryMethod() {
+    result.hasName("createQuery") and
+    result = this.getAMethod()
+  }
+
+  /** Gets a method named `createNamedQuery` declared in the `Session` interface. */
+  Method getACreateNamedQueryMethod() {
+    result.hasName("createNamedQuery") and
+    result = this.getAMethod()
+  }
+
+  /** Gets a method named `createNativeQuery` declared in the `Session` interface. */
+  Method getACreateNativeQueryMethod() {
+    result.hasName("createNativeQuery") and
+    result = this.getAMethod()
+  }
 }
 
 /**
