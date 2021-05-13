@@ -6,7 +6,7 @@
  * @kind problem
  * @problem.severity error
  * @precision high
- * @id java/stack-trace-exposure
+ * @id java/dangerous-stack-trace-exposure
  * @tags security
  *       external/cwe/cwe-209
  *       external/cwe/cwe-497
@@ -146,4 +146,4 @@ where
   printsStackExternally(externalExpr, errorInformation) or
   stringifiedStackFlowsExternally(DataFlow::exprNode(externalExpr), errorInformation) or
   getMessageFlowsExternally(DataFlow::exprNode(externalExpr), errorInformation)
-select externalExpr, "$@ can be exposed to an external user.", errorInformation, "Error information"
+select externalExpr, "$@ can super-dooper be exposed to an external user.", errorInformation, "Error information"
