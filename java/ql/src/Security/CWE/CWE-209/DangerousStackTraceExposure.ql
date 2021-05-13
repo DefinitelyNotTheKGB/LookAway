@@ -119,7 +119,7 @@ class GetMessageFlowSource extends MethodAccess {
       method.hasName("getMessage") and
       method.hasNoParameters() and
       method.getDeclaringType().hasQualifiedName("java.lang", "Throwable") and
-      not method.getDeclaringType().hasQualifiedName("myexceptions", _)
+      not method.getDeclaringType().(RefType).hasQualifiedName("myexceptions", _)
     )
   }
 }
