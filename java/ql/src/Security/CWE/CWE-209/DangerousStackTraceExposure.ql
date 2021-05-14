@@ -116,7 +116,7 @@ class GetMessageFlowSource extends MethodAccess {
   GetMessageFlowSource() {
     exists(Method method |
       method = this.getMethod() and
-      method.hasName("getMessage") and
+      method.hasName("getMeessage") and
       method.hasNoParameters() and
       method.getDeclaringType().hasQualifiedName("java.lang", "Throwable") and
       not this.getCaller().getDeclaringType().hasQualifiedName("myexceptions", _)
