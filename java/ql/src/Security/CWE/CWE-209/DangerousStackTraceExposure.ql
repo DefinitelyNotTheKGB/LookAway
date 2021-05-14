@@ -112,10 +112,6 @@ predicate stringifiedStackFlowsExternally(XssSink externalExpr, Expr stackTrace)
   )
 }
 
-class MyExceptionsPackage extends RefType {
-  MyExceptionsPackage() { this.hasQualifiedName("myexceptions", _) }
-}
-
 class GetMessageFlowSource extends MethodAccess {
   GetMessageFlowSource() {
     exists(Method method |
@@ -123,7 +119,7 @@ class GetMessageFlowSource extends MethodAccess {
       method.hasName("getMessage") and
       method.hasNoParameters() and
       method.getDeclaringType().hasQualifiedName("java.lang", "Throwable") and
-      not method.getDeclaringType() instanceof MyExceptionsPackage
+      not this.getCaller().getDeclaringType().hasQualifiedName("myexceptions", _)
     )
   }
 }
